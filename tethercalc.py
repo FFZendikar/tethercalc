@@ -1,5 +1,5 @@
 """
-Calculates the optimal Dragon Sight buff target
+Calculates the optimal Devilment buff target
 """
 from datetime import timedelta
 import os
@@ -82,7 +82,7 @@ def get_tethers(report, start, end):
     options = {
         'start': start,
         'end': end,
-        'filter': 'ability.id=1001454' # Left Eye
+        'filter': 'ability.id=1001825' # Devilment
     }
 
     event_data = fflogs_api('events/summary', report, options)
@@ -417,7 +417,7 @@ def tethercalc(report, fight_id):
 
         # Remove dragon sight bonus on target that actually got it
         if tether['target'] in real_damages:
-            real_damages[tether['target']] = int(real_damages[tether['target']] / 1.05)
+            real_damages[tether['target']] = int(real_damages[tether['target']] / 1.13)
 
         # Order into a list of tuples
         damage_list = sorted(real_damages.items(), key=lambda dmg: dmg[1], reverse=True)
