@@ -328,7 +328,7 @@ def print_results(results, friends):
     for result in results:
         print("{} tethered {} at {}".format(
             friends[result['source']]['name'],
-            friends[result['target']]['name'],
+            result['target'],
             result['timing']))
 
         # Get the correct target
