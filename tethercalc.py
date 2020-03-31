@@ -125,7 +125,7 @@ def get_damages(report, start, end):
     options = {
         'start': start,
         'end': end,
-        'filter': 'isTick="false" and source.type!="pet"'
+        'filter': 'isTick="false"'
     }
 
     damage_data = fflogs_api('tables/damage-done', report, options)
@@ -147,7 +147,6 @@ def get_tick_damages(report, version, start, end):
         'start': start,
         'end': end + 60000, # 60s is the longest dot
         'filter': """
-            source.type="player" and
             ability.id not in (1000493, 1000819, 1000820, 1001203, 1000821, 1000140, 1001195, 1001291, 1001221)
             and (
                 (
